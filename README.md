@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📰 Sinhala Newspaper Portfolio
+This is a portfolio website styled like a Sinhala newspaper 🗞️, built using Next.js and Tailwind CSS, and powered by the NewsAPI for dynamic news content. The design reflects the traditional feel of a newspaper while presenting portfolio content creatively.
+Show Image
+🛠️ Tech Stack
 
-## Getting Started
+Next.js
+Tailwind CSS
+NewsAPI
+Responsive Design (Mobile-first)
+Deployed on Vercel or your preferred hosting provider
 
-First, run the development server:
+📸 Screenshot
+Show Image
+🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+📢 Dynamic news section using NewsAPI
+🎨 Newspaper-style layout with custom Tailwind styling
+🧑‍💼 Portfolio sections for personal info, projects, and contact
+🌐 Fully responsive and mobile-friendly
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔧 Setup Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Clone the Repository
+bashgit clone https://github.com/yourusername/sinhala-newspaper-portfolio.git
+cd sinhala-newspaper-portfolio
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install Dependencies
+bashnpm install
 
-## Learn More
+Add Your NewsAPI Key
+Create a .env.local file:
+NEWS_API_KEY=your_api_key_here
+Get your API key from https://newsapi.org
+Run the Development Server
+bashnpm run dev
+Open http://localhost:3000 to view it in the browser.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📁 Project Structure
+sinhala-newspaper-portfolio/
+├── components/
+├── pages/
+├── public/
+│   └── image.png
+├── styles/
+├── .env.local
+└── ...
+📬 Contact
+Feel free to reach out via LinkedIn or email@example.com.
+Created with ❤️ using Next.js and Tailwind CSS
