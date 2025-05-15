@@ -1,11 +1,13 @@
 📰 Sinhala Newspaper Portfolio
 <div align="center">
-Show Image
-A creative portfolio website inspired by traditional Sinhala newspapers
-Show Image
-Show Image
-Show Image
-Show Image
+  <img src="./public/header.png" alt="Portfolio Header" width="800px">
+<strong>A creative portfolio website inspired by traditional Sinhala newspapers</strong>
+  <p>
+    <img src="./public/preview1.png" alt="Preview 1" width="180px">
+    <img src="./public/preview2.png" alt="Preview 2" width="180px">
+    <img src="./public/preview3.png" alt="Preview 3" width="180px">
+    <img src="./public/preview4.png" alt="Preview 4" width="180px">
+  </p>
 </div>
 📋 Overview
 This portfolio website is designed with the aesthetic of a traditional Sinhala newspaper while serving as a modern, functional portfolio. It combines the nostalgic feel of print media with dynamic content delivery through NewsAPI integration.
@@ -56,10 +58,7 @@ yarn install
 Configure Environment Variables
 Create a .env.local file in the root directory:
 envNEWS_API_KEY=your_api_key_here
-
 Get your API key by registering at NewsAPI.org
-
-
 Start Development Server
 bashnpm run dev
 # or
@@ -102,7 +101,6 @@ GitHub: github.com/yourusername
 LinkedIn: Your LinkedIn Profile
 Email: email@example.com
 
-
 <div align="center">
-Created with ❤️ using Next.js and Tailwind CSS
+  Created with ❤️ using Next.js and Tailwind CSS
 </div>
