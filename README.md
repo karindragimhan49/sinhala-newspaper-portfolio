@@ -1,24 +1,48 @@
 📰 Sinhala Newspaper Portfolio
-This is a portfolio website styled like a Sinhala newspaper 🗞️, built using Next.js and Tailwind CSS, and powered by the NewsAPI for dynamic news content. The design reflects the traditional feel of a newspaper while presenting portfolio content creatively.
+<div align="center">
 Show Image
-🛠️ Tech Stack
-
-Next.js
-Tailwind CSS
-NewsAPI
-Responsive Design (Mobile-first)
-Deployed on Vercel or your preferred hosting provider
-
-📸 Screenshot
+A creative portfolio website inspired by traditional Sinhala newspapers
 Show Image
+Show Image
+Show Image
+Show Image
+</div>
+📋 Overview
+This portfolio website is designed with the aesthetic of a traditional Sinhala newspaper while serving as a modern, functional portfolio. It combines the nostalgic feel of print media with dynamic content delivery through NewsAPI integration.
+The project showcases:
+
+Creative presentation of portfolio elements as newspaper "articles"
+Real-time news integration using NewsAPI
+Responsive design that works across all device sizes
+Clean, newspaper-inspired typography and layout
+
 🚀 Features
 
-📢 Dynamic news section using NewsAPI
-🎨 Newspaper-style layout with custom Tailwind styling
-🧑‍💼 Portfolio sections for personal info, projects, and contact
-🌐 Fully responsive and mobile-friendly
+📑 Newspaper Layout Design - Authentic newspaper styling with columns, headlines, and traditional typography
+📰 Dynamic News Feed - Integration with NewsAPI to display current headlines
+👤 Portfolio Sections - Personal information, skills, projects, and achievements presented as newspaper articles
+📱 Responsive Design - Mobile-first approach ensuring perfect display on all devices
+🌐 SEO Optimized - Built with Next.js for excellent search engine performance
+⚡ Fast Loading - Optimized for quick page loads and smooth transitions
 
-🔧 Setup Instructions
+🛠️ Technology Stack
+
+Frontend Framework: Next.js
+Styling: Tailwind CSS
+API Integration: NewsAPI
+Deployment: Vercel
+
+📷 Screenshots
+<div align="center">
+  <img src="./public/image.png" alt="Sinhala Newspaper Portfolio" width="800px">
+</div>
+🔧 Installation & Setup
+Prerequisites
+
+Node.js (v14 or later)
+npm or yarn
+
+Step-by-Step Instructions
 
 Clone the Repository
 bashgit clone https://github.com/yourusername/sinhala-newspaper-portfolio.git
@@ -26,24 +50,59 @@ cd sinhala-newspaper-portfolio
 
 Install Dependencies
 bashnpm install
+# or
+yarn install
 
-Add Your NewsAPI Key
-Create a .env.local file:
-NEWS_API_KEY=your_api_key_here
-Get your API key from https://newsapi.org
-Run the Development Server
+Configure Environment Variables
+Create a .env.local file in the root directory:
+envNEWS_API_KEY=your_api_key_here
+
+Get your API key by registering at NewsAPI.org
+
+
+Start Development Server
 bashnpm run dev
-Open http://localhost:3000 to view it in the browser.
+# or
+yarn dev
+
+Access Development Site
+Open your browser and navigate to http://localhost:3000
 
 📁 Project Structure
 sinhala-newspaper-portfolio/
-├── components/
-├── pages/
-├── public/
-│   └── image.png
-├── styles/
-├── .env.local
-└── ...
+├── components/          # Reusable UI components
+│   ├── Headline.js
+│   ├── NewsArticle.js
+│   ├── Portfolio.js
+│   └── ...
+├── pages/               # Application pages
+│   ├── index.js         # Homepage
+│   ├── projects.js
+│   ├── about.js
+│   └── ...
+├── public/              # Static assets
+│   ├── image.png
+│   └── ...
+├── styles/              # CSS and Tailwind configurations
+├── utils/               # Utility functions
+├── .env.local           # Environment variables
+├── next.config.js       # Next.js configuration
+└── package.json         # Project dependencies and scripts
+📦 Deployment
+This project is configured for easy deployment on Vercel:
+
+Push your repository to GitHub
+Import the project to Vercel
+Configure environment variables
+Deploy!
+
 📬 Contact
-Feel free to reach out via LinkedIn or email@example.com.
+
+GitHub: github.com/yourusername
+LinkedIn: Your LinkedIn Profile
+Email: email@example.com
+
+
+<div align="center">
 Created with ❤️ using Next.js and Tailwind CSS
+</div>
