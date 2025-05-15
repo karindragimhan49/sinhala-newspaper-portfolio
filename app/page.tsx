@@ -1,7 +1,36 @@
-import Image from "next/image"
+"use client"
+
+import { useEffect, useState } from "react"
+import TechNews from "@/components/tech-news"
+import SkillsSection from "@/components/skills-section"
+import ProjectsSection from "@/components/projects-section"
+import CertificationsSection from "@/components/certifications-section"
+import EducationSection from "@/components/education-section"
+import ContactSection from "@/components/contact-section"
+import ProfileHeader from "@/components/profile-header"
+import VintageOverlay from "@/components/vintage-overlay"
+import PageFoldEffect from "@/components/page-fold-effect"
 
 export default function Home() {
-  const currentDate = new Date()
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+
+    // Add vintage paper sound on page load
+    const audio = new Audio("/paper-sound.mp3")
+    audio.volume = 0.2
+    audio.play().catch((e) => console.log("Audio play prevented:", e))
+
+    // Add class to body for vintage animations
+    document.body.classList.add("vintage-loaded")
+
+    return () => {
+      document.body.classList.remove("vintage-loaded")
+    }
+  }, [])
+
+  const currentDate = new Date(1935, 5, 15) // June 15, 1935
   const formattedDate = currentDate.toLocaleDateString("en-US", {
     weekday: "long",
     year: "numeric",
@@ -10,177 +39,106 @@ export default function Home() {
   })
 
   return (
-    <main className="min-h-screen bg-[#f8f3e3] text-[#1a1a1a] font-serif">
-      {/* Header */}
-      <header className="border-b-2 border-black py-2 px-4">
-        <div className="container mx-auto">
-          <div className="flex justify-between items-center text-xs uppercase tracking-wider mb-2">
-            <div>Vol. XLII No. 127</div>
-            <div>{formattedDate}</div>
-            <div>Price: Rs. 0.50</div>
+    <main
+      className={`min-h-screen bg-[#f5e8d4] text-[#2a2622] font-serif vintage-paper ${isLoaded ? "fade-in" : "opacity-0"}`}
+    >
+      <VintageOverlay />
+      <PageFoldEffect />
+
+      <div className="container mx-auto px-4 py-8 relative">
+        {/* Vintage newspaper decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-8 border-b-2 border-[#2a2622] opacity-30"></div>
+        <div className="absolute top-8 left-0 w-full h-1 border-b border-[#2a2622] opacity-20"></div>
+
+        {/* Header */}
+        <header className="mb-12 pt-12 relative">
+          <div
+            className="flex justify-between items-center text-xs uppercase tracking-widest mb-2 vintage-fade-in"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <div className="vintage-stamp">Est. 1935</div>
+            <div className="vintage-date">{formattedDate}</div>
+            <div className="vintage-price">PRICE TWO CENTS</div>
           </div>
 
-          <h1 className="text-center text-5xl md:text-6xl lg:text-7xl font-bold sinhala-heading py-4 border-y-2 border-black text-[#8B0000]">
-            ලංකාදීප
-          </h1>
-
-          <div className="text-center text-sm mt-2 italic">"The Premier Portfolio of Ceylon"</div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-6">
-        {/* Lead Story */}
-        <div className="border-b-2 border-black pb-6 mb-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 uppercase tracking-tight text-[#2F4F4F]">
-            FEATURED WORKS
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div className="relative h-80 md:h-96 overflow-hidden border border-gray-800">
-              <Image
-                src="/placeholder.svg?height=600&width=800"
-                alt="Main Project"
-                fill
-                className="object-cover vintage-filter"
-              />
+          <div className="border-b-2 border-[#2a2622] pb-6 relative">
+            <div className="vintage-fade-in" style={{ animationDelay: "0.4s" }}>
+              <h1 className="text-7xl md:text-8xl font-bold text-[#8B0000] uppercase tracking-tight leading-none mb-2 text-center vintage-title">
+                THE DAILY
+              </h1>
+              <h2 className="text-5xl md:text-6xl font-bold uppercase tracking-tight leading-none text-center vintage-subtitle">
+                ENGINEER
+              </h2>
             </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-2 text-[#654321]">WEB DEVELOPMENT PROJECT</h3>
-              <p className="text-sm leading-relaxed mb-4">
-                A modern web application built with cutting-edge technologies. This project showcases responsive design,
-                interactive elements, and seamless user experience across all devices.
-              </p>
-              <p className="text-sm leading-relaxed">
-                The client reported a 45% increase in user engagement after the implementation of this solution. The
-                project was completed ahead of schedule and within budget constraints.
-              </p>
-              <div className="mt-4 text-xs italic">Continued on page 3, column 2</div>
+
+            <div className="flex flex-col md:flex-row mt-6 vintage-fade-in" style={{ animationDelay: "0.6s" }}>
+              <div className="w-full md:w-2/3 md:pr-8 md:border-r md:border-[#2a2622]">
+                <p className="text-sm leading-relaxed vintage-typewriter">
+                  BSc (Hons) Software Engineering undergraduate with a strong interest in DevOps, Site Reliability
+                  Engineering (SRE), and Cloud technologies. Passionate about building scalable, reliable systems and
+                  exploring automation, CI/CD, and infrastructure as code.
+                </p>
+              </div>
+              <div className="w-full md:w-1/3 md:pl-8 mt-4 md:mt-0">
+                <p className="text-sm font-bold italic">"The Modern Engineer's Chronicle"</p>
+              </div>
             </div>
+
+            {/* Decorative line */}
+            <div className="absolute bottom-0 left-0 w-full h-1 border-b border-[#2a2622] opacity-20"></div>
           </div>
-        </div>
+        </header>
 
-        {/* Secondary Stories */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-b-2 border-black pb-6 mb-6">
-          {/* Project 1 */}
-          <div className="border-r border-black pr-4">
-            <div className="relative h-48 mb-4 overflow-hidden border border-gray-800">
-              <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="Project 1"
-                fill
-                className="object-cover vintage-filter"
-              />
-            </div>
-            <div className="flex items-center gap-2 mb-2">
-              <h3 className="text-xl font-bold text-[#654321]">MOBILE APPLICATION</h3>
-              <span className="bg-[#8B0000] text-white text-xs px-2 py-1">NEW</span>
-            </div>
-            <p className="text-sm leading-relaxed">
-              A native mobile application developed for both iOS and Android platforms. Features include offline
-              functionality, push notifications, and seamless synchronization.
-            </p>
+        {/* Main Content */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+          {/* Left Column - Profile and Projects */}
+          <div
+            className="md:col-span-8 md:border-r md:border-[#2a2622] md:pr-8 vintage-fade-in"
+            style={{ animationDelay: "0.8s" }}
+          >
+            <ProfileHeader />
+            <ProjectsSection />
           </div>
 
-          {/* Project 2 */}
-          <div className="md:border-r md:border-black md:pr-4">
-            <div className="relative h-48 mb-4 overflow-hidden border border-gray-800">
-              <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="Project 2"
-                fill
-                className="object-cover vintage-filter"
-              />
+          {/* Right Column - Tech News */}
+          <div className="md:col-span-4 vintage-fade-in" style={{ animationDelay: "1s" }}>
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold text-[#8B0000] uppercase mb-6 leading-tight vintage-section-title">
+                TELEGRAPH NEWS
+              </h2>
+              <TechNews />
             </div>
-            <div className="flex items-center gap-2 mb-2">
-              <h3 className="text-xl font-bold text-[#654321]">E-COMMERCE SOLUTION</h3>
-            </div>
-            <p className="text-sm leading-relaxed">
-              A complete e-commerce platform with inventory management, payment processing, and customer relationship
-              management features. Built for scalability and performance.
-            </p>
-          </div>
-
-          {/* Project 3 */}
-          <div>
-            <div className="relative h-48 mb-4 overflow-hidden border border-gray-800">
-              <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="Project 3"
-                fill
-                className="object-cover vintage-filter"
-              />
-            </div>
-            <div className="flex items-center gap-2 mb-2">
-              <h3 className="text-xl font-bold text-[#654321]">BRANDING PROJECT</h3>
-              <span className="bg-[#8B0000] text-white text-xs px-2 py-1">NEW</span>
-            </div>
-            <p className="text-sm leading-relaxed">
-              Complete brand identity development including logo design, color palette, typography guidelines, and
-              marketing materials for a new startup.
-            </p>
           </div>
         </div>
 
-        {/* Large Feature */}
-        <div className="my-8">
-          <div className="bg-[#2F4F4F] text-white py-12 px-8 text-center">
-            <h2 className="text-6xl md:text-8xl font-bold tracking-tighter">THE DEVELOPER</h2>
-            <p className="mt-4 italic">Crafting digital experiences since 2015</p>
-          </div>
+        {/* Skills Section */}
+        <div className="vintage-fade-in" style={{ animationDelay: "1.2s" }}>
+          <SkillsSection />
         </div>
 
-        {/* About & Contact Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t-2 border-black pt-6">
-          <div>
-            <h3 className="text-2xl font-bold mb-4 uppercase border-b border-black pb-2 text-[#654321]">
-              ABOUT THE CREATOR
-            </h3>
-            <p className="text-sm leading-relaxed">
-              I am a creative web developer and UX/UI designer specializing in crafting unique digital experiences. With
-              over 8 years of experience in the industry, I have worked with clients ranging from small startups to
-              established enterprises.
-            </p>
-            <p className="text-sm leading-relaxed mt-4">
-              My approach combines technical expertise with creative problem-solving to deliver solutions that not only
-              look great but also perform exceptionally well. I believe in the power of clean, accessible, and
-              user-centered design.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold mb-4 uppercase border-b border-black pb-2 text-[#654321]">
-              CONTACT INFORMATION
-            </h3>
-            <p className="text-sm leading-relaxed">You can reach me through the following channels:</p>
-            <ul className="mt-2 space-y-1">
-              <li className="text-sm">Telegram: No. 42, Temple Road, Colombo</li>
-              <li className="text-sm">Telephone: 2-345-678</li>
-              <li className="text-sm">Post: P.O. Box 1978, Colombo, Ceylon</li>
-            </ul>
-            <div className="mt-4 text-sm italic">Office hours: 9 a.m. to 5 p.m. (Closed on Poya days)</div>
-          </div>
+        {/* Certifications Section */}
+        <div className="vintage-fade-in" style={{ animationDelay: "1.4s" }}>
+          <CertificationsSection />
         </div>
 
-        {/* Classified Ads Section */}
-        <div className="mt-8 border-2 border-black p-4 bg-[#F5F5DC]">
-          <h3 className="text-center text-xl font-bold mb-4 uppercase text-[#654321]">SKILLS & TECHNOLOGIES</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-            <div className="border border-gray-800 p-2 text-center bg-white">HTML5 & CSS3</div>
-            <div className="border border-gray-800 p-2 text-center bg-white">JavaScript/TypeScript</div>
-            <div className="border border-gray-800 p-2 text-center bg-white">React & Next.js</div>
-            <div className="border border-gray-800 p-2 text-center bg-white">Node.js</div>
-            <div className="border border-gray-800 p-2 text-center bg-white">UI/UX Design</div>
-            <div className="border border-gray-800 p-2 text-center bg-white">Responsive Design</div>
-            <div className="border border-gray-800 p-2 text-center bg-white">API Development</div>
-            <div className="border border-gray-800 p-2 text-center bg-white">Database Design</div>
-          </div>
+        {/* Education Section */}
+        <div className="vintage-fade-in" style={{ animationDelay: "1.6s" }}>
+          <EducationSection />
+        </div>
+
+        {/* Contact Section */}
+        <div className="vintage-fade-in" style={{ animationDelay: "1.8s" }}>
+          <ContactSection />
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="border-t-2 border-black py-4 px-6 text-center text-xs bg-[#F5F5DC]">
-        <p>Published by Portfolio Press, Colombo, Ceylon</p>
-        <p className="mt-1">&copy; {new Date().getFullYear()} All Rights Reserved</p>
+      <footer
+        className="border-t-2 border-[#2a2622] py-4 px-6 text-center text-xs vintage-fade-in"
+        style={{ animationDelay: "2s" }}
+      >
+        <p>Published by Karindra Gimhan, Ceylon</p>
+        <p className="mt-1">© 1935 All Rights Reserved</p>
       </footer>
     </main>
   )
