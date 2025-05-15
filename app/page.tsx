@@ -64,10 +64,10 @@ export default function Home() {
           <div className="border-b-2 border-[#2a2622] pb-6 relative">
             <div className="vintage-fade-in" style={{ animationDelay: "0.4s" }}>
               <h1 className="text-7xl md:text-8xl font-bold text-[#8B0000] uppercase tracking-tight leading-none mb-2 text-center vintage-title">
-                THE DAILY
+                ලංකාදීප
               </h1>
-              <h2 className="text-5xl md:text-6xl font-bold uppercase tracking-tight leading-none text-center vintage-subtitle">
-                ENGINEER
+              <h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tight leading-none text-center vintage-subtitle">
+                The Ceylon Daily
               </h2>
             </div>
 
